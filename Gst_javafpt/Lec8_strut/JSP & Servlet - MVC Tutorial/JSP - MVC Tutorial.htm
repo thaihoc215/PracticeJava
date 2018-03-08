@@ -1,0 +1,218 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0060)http://www.datadisk.co.uk/html_docs/jsp/jsp_mvc_tutorial.htm -->
+<HTML><HEAD><TITLE>JSP - MVC Tutorial</TITLE>
+<META http-equiv=Content-Type content="text/html; charset=iso-8859-1">
+<STYLE type=text/css>BODY {
+	BACKGROUND-COLOR: #ccdd99
+}
+</STYLE>
+<LINK href="JSP - MVC Tutorial_files/default.css" type=text/css rel=stylesheet>
+<META content="MSHTML 6.00.2900.6212" name=GENERATOR></HEAD>
+<BODY>
+<P class=header>MVC Tutorial</P>
+<P>This is a simple Model View Controller (MVC) tutorial, although this is a 
+very small application it uses the MVC model approach which proves that even 
+small applications can use MVC. The following is what we will be doing in this 
+tutorial,</P>
+<UL>
+  <LI>Writing an HTML form page 
+  <LI>Creating a Servlet controller - <STRONG>Controller </STRONG>
+  <LI>Creating the Model (a plain old Java class) - <STRONG>Model </STRONG>
+  <LI>Creating an XML deployment descriptor 
+  <LI>Creating an JSP View - <STRONG>View</STRONG> </LI></UL>
+<P>You will need the following requirements already setup, you can use either 
+Unix/Linux or Windows the choice is yours </P>
+<UL>
+  <LI><A href="http://java.sun.com/">Java SDK 1.5</A> or greater (I have a 
+  tutorial on <A href="http://www.datadisk.co.uk/main/java.htm">Java</A>) 
+  <LI><A href="http://tomcat.apache.org/">Tomcat 6</A> (I have a tutorial on <A 
+  href="http://www.datadisk.co.uk/html_docs/java_app/tomcat6/tomcat6.htm">Tomcat</A>) 
+
+  <LI><A href="http://www.apache.org/">Apache Web server</A> (I have some 
+  information on Apache in my <A 
+  href="http://www.datadisk.co.uk/html_docs/java_app/tomcat6/tomcat6.htm">Tomcat</A> 
+  web pages) </LI></UL>
+<P>The web application is a Coffee advisor, the user will input the type of 
+Coffee and get back some advise, below is the users input screen</P>
+<P><IMG height=193 src="JSP - MVC Tutorial_files/mvc_tutorial5.jpg" 
+width=516></P>
+<P align=left>The User will receive the below advise page</P>
+<P><IMG height=153 src="JSP - MVC Tutorial_files/mvc_tutorial6.jpg" 
+width=516></P>
+<P>Even though this is a small application we'll build it using a simple MVC 
+architecture</P>
+<TABLE width=900 border=1>
+  <TBODY>
+  <TR>
+    <TD rowSpan=2>
+      <OL>
+        <LI>
+        <DIV align=left>The client makes a request for the form.html page</DIV>
+        <LI>
+        <DIV align=left>The Container retrieves the form.html page</DIV>
+        <LI>
+        <DIV align=left>The Container returns the page to the browser, where the 
+        user answers the questions on the form</DIV>
+        <LI>
+        <DIV align=left>The browser sends the request data to the 
+Container</DIV>
+        <LI>
+        <DIV align=left>The Container finds the correct servlet based on the 
+        URL, and passes the request to the servlet</DIV>
+        <LI>
+        <DIV align=left>The servlet calls the CoffeeExpert for help</DIV>
+        <LI>
+        <DIV align=left>The expert class returns an answer, which the servlet 
+        adds to the request object</DIV>
+        <LI>
+        <DIV align=left>The servlet forwards the request to the JSP</DIV>
+        <LI>
+        <DIV align=left>The JSP gets the answer from the request object</DIV>
+        <LI>
+        <DIV align=left>The JSP generates a page for the Container</DIV>
+        <LI>
+        <DIV align=left>The Container returns the page to the user 
+    </DIV></LI></OL></TD>
+    <TD><IMG height=220 src="JSP - MVC Tutorial_files/mvc_tutorial1.jpg" 
+      width=389></TD></TR>
+  <TR>
+    <TD><IMG height=216 src="JSP - MVC Tutorial_files/mvc_tutorial2.jpg" 
+      width=389></TD></TR></TBODY></TABLE>
+<P>Below is an example for creating your development environment but this is 
+entirely up to you</P>
+<P><IMG height=338 src="JSP - MVC Tutorial_files/mvc_tutorial3.jpg" 
+width=408></P>
+<P>Below is the deployment environment, here I am using <A 
+href="http://www.datadisk.co.uk/html_docs/java_app/tomcat6/tomcat6.htm">Tomcat</A> 
+deploying a web application involves both Container-specific rules and 
+requirements of the servlet and JSP specification, everything below the coffeeV1 
+directory is the same regardless of your Container</P>
+<P><IMG height=483 src="JSP - MVC Tutorial_files/mvc_tutorial4.jpg" 
+width=294></P>
+<P><STRONG>The HTML form page</STRONG><A id=html name=html></A> </P>
+<P>This is a simple HTML form page, basically containing a heading and a drop 
+down list, I have already touched on <A 
+href="http://www.datadisk.co.uk/html_docs/jsp/jsp_intro.htm">HTML</A></P>
+<TABLE width=900 border=1>
+  <TBODY>
+  <TR>
+    <TD width=150>HTML Form Page </TD>
+    <TD class=code_text width=734>
+      <P>&lt;html&gt;<BR>&lt;title&gt;Coffee 
+      Advisor&gt;&lt;/title&gt;<BR>&lt;body&gt;<BR>&nbsp;&nbsp;&lt;h1 
+      align="center"&gt;Coffee Advisor &lt;/h1&gt;<BR>&nbsp; &lt;form 
+      method="<STRONG>POST</STRONG>" 
+      action="<STRONG>SelectCoffee.do</STRONG>"&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;Select 
+      coffee <BR>&nbsp;&nbsp;&nbsp; Type:<BR>&nbsp;&nbsp;&nbsp;&nbsp;&lt;select 
+      name="type" size=1"&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;option 
+      value="milky"&gt;Milky&lt;/option&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;option 
+      value="froffy"&gt;Froffy&lt;/option&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;option 
+      value="icey"&gt;Icey&lt;/option&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;option 
+      value="strong"&gt;Spaced 
+      Out&lt;/option&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/select&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&lt;br&gt;&lt;br&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&lt;center&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;input 
+      type="Submit"&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/center&gt;<BR>&nbsp;&nbsp;&nbsp;&lt;/form&gt;<BR>&lt;/body&gt;<BR>&lt;html&gt;</P>
+      <P>Note: the SelectCoffee.do is a logical name as we will not have access 
+      to the class file </P></TD></TR></TBODY></TABLE>
+<P><STRONG>The Deployment Descriptor<A name=dd></A></STRONG></P>
+<P>Now we nee to create the deployment descriptor which is called web.xml, see 
+above diagram on where to place this file </P>
+<TABLE width=900 border=1>
+  <TBODY>
+  <TR>
+    <TD width=150>Deployment Descriptor </TD>
+    <TD class=code_text width=734>
+      <P>&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;<BR>&lt;web-app 
+      xmlns="http://java.sun.com/xml/ns/j2ee"<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Version="2.4"&gt;<BR><BR>&nbsp;&nbsp;&lt;servlet&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&lt;servlet-name&gt;Coffee&lt;/servlet-name&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&lt;servlet-class&gt;com.example.web.CoffeeSelect&lt;/servlet-class&gt;<BR>&nbsp;&nbsp;&lt;/servlet&gt;<BR><BR>&nbsp;&nbsp;&lt;servlet-mapping&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&lt;servlet-name&gt;Coffee&lt;/servlet-name&gt;<BR>&nbsp;&nbsp;&nbsp;&nbsp;&lt;url-pattern&gt;/SelectCoffee.do&lt;/url-pattern&gt;<BR>&nbsp;&nbsp;&lt;/servlet-mapping&gt;<BR><BR>&lt;/web-app&gt; 
+      </P>
+      <P>Note: I have more information on <A 
+      href="http://www.datadisk.co.uk/html_docs/java_app/tomcat6/tomcat6_web_config.htm">URL 
+      servlet mapping</A> in my Tomcat tutorial </P></TD></TR></TBODY></TABLE>
+<P><STRONG>The Controller Servlet and Model Class <A 
+name=servlet></A></STRONG></P>
+<P>What we will be doing here is to create the Model class that will be used by 
+the controller servlet, we have separated out the model class because the model 
+class could be updated to point to a database or another coffee expert source, 
+thus the servlet will not have to be changed, the idea in any OO programming is 
+to think about development at a later date, you don't what a whole load of 
+changes to your application because you want to change one aspect of it, 
+providing your interfaces to classes don't change then development is much 
+easier.</P>
+<TABLE width=1050 border=1>
+  <TBODY>
+  <TR>
+    <TD width=150>Model Class </TD>
+    <TD class=code_text width=884>
+      <P>package com.example.model;<BR><BR>import java.util.*;<BR><BR>public 
+      class CoffeeExpert {<BR>&nbsp;&nbsp;&nbsp;public List getTypes(String 
+      type) {<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List types = new 
+      ArrayList();<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if 
+      (type.equals("milky")) {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      types.add("latte");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;types.add("cappuccino");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else 
+      if (type.equals("froffy")) {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      types.add("latte");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;types.add("cappuccino");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;types.add("frappuccino");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else 
+      if (type.equals("icey")) {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      types.add("frappuccino");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else 
+      if (type.equals("strong")) {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      types.add("espresso");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;types.add("double 
+      espresso");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else 
+      {<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; types.add("Vending 
+      Machine");<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return(types);<BR>&nbsp;&nbsp;&nbsp;}<BR>}</P>
+      <P># To compile the above class file<BR>javac -d classes 
+      src/com/example/model/CoffeeExpert.java</P>
+      <P>Note: At a later date this Model could become complex by using a 
+      database, which in the real world tends to happen </P></TD></TR>
+  <TR>
+    <TD>Servlet Controller </TD>
+    <TD class=code_text>
+      <P>package com.example.web;<BR><BR>import com.example.model.*;<BR>import 
+      javax.servlet.*;<BR>import javax.servlet.http.*;<BR>import 
+      java.io.*;<BR>import java.util.*;<BR><BR>public class CoffeeSelect extends 
+      HttpServlet {<BR><BR>&nbsp;&nbsp;public void doPost( HttpServletRequest 
+      request, 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+      HttpServletResponse response) <BR>&nbsp;&nbsp;&nbsp;&nbsp; 
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throws 
+      IOException, ServletException {<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;String c = 
+      request.getParameter("type");<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;// Now use 
+      our Coffee Model above <BR>&nbsp;&nbsp;&nbsp;&nbsp;CoffeeExpert ce = new 
+      CoffeeExpert();</P>
+      <P>&nbsp;&nbsp;&nbsp;&nbsp;List result = 
+      ce.getTypes(c);<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;// Use the below code to 
+      debug the program if you get problems 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;//response.setContentType("text/html"):<BR>&nbsp;&nbsp;&nbsp;&nbsp;//PrintWriter 
+      out = 
+      response.getWriter();<BR>&nbsp;&nbsp;&nbsp;&nbsp;//out.println("Coffee 
+      Selection Advise&lt;br&gt;");<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;//Iterator it 
+      = result.iterator();<BR>&nbsp;&nbsp;&nbsp;&nbsp;//while(it.hasNext()) 
+      {<BR>&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;out.print("&lt;br&gt;try: " + 
+      it.next());<BR>&nbsp;&nbsp;&nbsp;&nbsp;//}<BR><BR>&nbsp;&nbsp;&nbsp;&nbsp;// 
+      The results will be passed back (as an attribute) to the JSP 
+      view<BR>&nbsp;&nbsp;&nbsp;&nbsp;// The attribute will be a name/value 
+      pair, the value in this case will be a List object 
+      <BR>&nbsp;&nbsp;&nbsp;&nbsp;request.setAttribute("styles", 
+      result);<BR>&nbsp;&nbsp;&nbsp;&nbsp;RequestDispatcher view = 
+      request.getRequestDispatcher("result.jsp");<BR>&nbsp;&nbsp;&nbsp;&nbsp;view.forward(request, 
+      response); <BR>&nbsp;&nbsp;}<BR>}</P>
+      <P>## To compile the servlet<BR><BR>## UNIX <BR>javac -classpath 
+      &lt;tomcat directory&gt;/lib/servlet-api.jar:classes:. -d classes 
+      src/com/example/web/CoffeeSelect.java<BR><BR># Windows (notice the 
+      semi-colons instead of colons) <BR>javac -classpath 
+      c:/tomcat6/lib/servlet-api.jar;classes;. -d classes 
+      src/com/example/web/CoffeeSelect.java </P></TD></TR></TBODY></TABLE>
+<P><STRONG>The JSP View</STRONG><A name=jsp_view></A> </P>
+<P>The last thing to do is to create the JSP view that will display the results 
+of the coffee advisor</P>
+<TABLE width=900 border=1>
+  <TBODY>
+  <TR>
+    <TD width=150>JSP View </TD>
+    <TD class=code_text width=734>
+      <P># Create the result.jsp file below </P>
+      <P>&lt;%@ page import="java.util.*" 
+      %&gt;<BR><BR>&lt;html&gt;<BR>&lt;body&gt;<BR>&lt;h1 
+      align="center"&gt;Coffee Recommandation JSP 
+      View&lt;/h1&gt;<BR>&lt;p&gt;<BR><BR>&lt;%<BR>&nbsp;&nbsp;List styles = 
+      (List) request.getAttribute("styles");<BR>&nbsp;&nbsp;Iterator it = 
+      styles.iterator();<BR>&nbsp;&nbsp;while(it.hasNext()) 
+      {<BR>&nbsp;&nbsp;&nbsp;&nbsp;out.print("&lt;br&gt;try: " + 
+      it.next());<BR>&nbsp;&nbsp;}<BR>%&gt;<BR><BR>&lt;/body&gt;<BR>&lt;/html&gt;</P></TD></TR></TBODY></TABLE></BODY></HTML>
