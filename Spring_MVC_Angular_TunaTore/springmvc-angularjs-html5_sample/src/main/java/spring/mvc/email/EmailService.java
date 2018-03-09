@@ -6,13 +6,13 @@ import java.util.Map;
 
 import javax.mail.internet.MimeMessage;
 
-import org.apache.velocity.app.VelocityEngine;
+//import org.apache.velocity.app.VelocityEngine;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.velocity.VelocityEngineUtils;
+//import org.springframework.ui.velocity.VelocityEngineUtils;
 
 @Service
 public class EmailService {
@@ -32,7 +32,7 @@ public class EmailService {
     private JavaMailSender mailSender;
     
     @Autowired
-    private VelocityEngine velocityEngine;
+//    private VelocityEngine velocityEngine;
     
    public boolean sendEmail(final String templateName, final Map<String, Object> model) {
         boolean r = false;
@@ -62,9 +62,9 @@ public class EmailService {
                 
                 model.put("noArgs", new Object[]{});
                 
-                String text = VelocityEngineUtils.mergeTemplateIntoString(
-                        velocityEngine, templateName,"UTF-8", model);
-                message.setText(text, true);
+//                String text = VelocityEngineUtils.mergeTemplateIntoString(
+//                        velocityEngine, templateName,"UTF-8", model);
+//                message.setText(text, true);
             }
         };
 

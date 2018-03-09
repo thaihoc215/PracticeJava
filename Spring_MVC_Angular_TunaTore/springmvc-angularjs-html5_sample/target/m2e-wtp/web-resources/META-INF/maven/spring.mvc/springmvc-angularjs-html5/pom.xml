@@ -16,7 +16,7 @@
 		<servlet.version>3.0.1</servlet.version>
 		
 		<!-- Spring -->
-		<spring-framework.version>4.1.7.RELEASE</spring-framework.version>
+		<spring-framework.version>5.0.4.RELEASE</spring-framework.version>
 
 		<!-- Spring Security -->
 		<spring-security.version>4.0.1.RELEASE</spring-security.version>
@@ -47,8 +47,13 @@
 		<!-- Spring MVC -->
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
+			<artifactId>spring-web</artifactId>
 			<version>${spring-framework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>4.1.6.RELEASE</version>
 		</dependency>
 				
 		<dependency>
@@ -80,7 +85,7 @@
 			<groupId>org.apache.velocity</groupId>
 			<artifactId>velocity</artifactId>
 			<version>1.7</version>
-		</dependency>		
+		</dependency>
 		
 		<!-- Other Servlet Web dependencies -->
 		<dependency>
@@ -243,14 +248,14 @@
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi</artifactId>
-			<version>3.12</version>
+			<version>3.17</version>
 		</dependency>
 				
 		<!-- PDF view -->
 		<dependency>
 			<groupId>com.lowagie</groupId>
 			<artifactId>itext</artifactId>
-			<version>2.1.5</version>
+			<version>2.1.7</version>
 		</dependency>
     
 		<!-- Quartz scheduling framework -->
@@ -258,8 +263,13 @@
             <groupId>org.quartz-scheduler</groupId>
             <artifactId>quartz</artifactId>
             <version>${quartz.scheduling.version}</version>
-        </dependency>        
-		
+        </dependency>  
+              
+		<dependency>
+    <groupId>commons-digester</groupId>
+    <artifactId>commons-digester</artifactId>
+    <version>2.1</version>
+</dependency>
 	</dependencies>	
 
 	<build>

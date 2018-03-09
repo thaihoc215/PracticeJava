@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>Lec7_TestProject</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <context-param>
+  	<param-name>systemAdminEmail</param-name>
+  	<param-value>thaihoc@gmail.com</param-value>
+  </context-param>
+  
+  <servlet>
+  	<servlet-name>WelcomeServlet</servlet-name>
+  	<servlet-class>spring.mvc.servlets.WelcomeController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>WelcomeServlet</servlet-name>
+  	<url-pattern>/WelcomeController</url-pattern>
+  </servlet-mapping>
+  <!-- Define filter -->
+<!--   <filter> -->
+<!--   	<filter-name>UrlFilter</filter-name> -->
+<!--   	<filter-class></filter-class> -->
+<!--   </filter> -->
+  
+<!--   <filter-mapping> -->
+<!--   	<filter-name>UrlFiter</filter-name> -->
+<!--   	<url-pattern>/user/*</url-pattern> -->
+<!--   </filter-mapping> -->
+  
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/error.jsp</location>
+  </error-page>
+</web-app>
