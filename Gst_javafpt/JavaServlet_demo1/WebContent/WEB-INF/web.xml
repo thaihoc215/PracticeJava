@@ -2,17 +2,11 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
   <display-name>Fpt_JavaServlet_demo1</display-name>
   <welcome-file-list>
-  <welcome-file>Login</welcome-file>
-    <!--<welcome-file>index.html</welcome-file>
-    <welcome-file>index.htm</welcome-file>
-    <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>-->
+    <welcome-file>Login</welcome-file>
   </welcome-file-list>
   <context-param>
-  	<param-name>USER_NAME</param-name>
-  	<param-value>admin</param-value>
+    <param-name>USER_NAME</param-name>
+    <param-value>admin</param-value>
   </context-param>
   <servlet>
     <description></description>
@@ -23,5 +17,15 @@
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/Login</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>abc</display-name>
+    <servlet-name>abc</servlet-name>
+    <servlet-class>servlet.demo.abc</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>abc</servlet-name>
+    <url-pattern>/abc</url-pattern>
   </servlet-mapping>
 </web-app>

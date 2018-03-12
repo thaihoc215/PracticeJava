@@ -1,7 +1,9 @@
 package network;
 
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Properties;
 
 import javax.mail.Authenticator;
@@ -82,4 +84,49 @@ public class mailDemo {
 
 	}
 
+}
+
+/*
+ * Queue mail
+ */
+class MailSender extends Thread {
+	static {
+		MailSender sender = new MailSender();
+		sender.start();
+	}
+
+	static final List<MimeMessage> queue = new ArrayList<>();
+
+	public void queue(MimeMessage mail) {
+		synchronized (queue) {
+			queue.add(mail);
+			queue.notify();
+		}
+
+	}
+
+	@Override
+	public void run() {
+		try {
+			synchronized (queue) {
+				if (queue.size() > 0) {
+					try {
+						MimeMessage mail = queue.remove(0);
+						Transport.send(mail);
+						System.out.println("The mail was send.");
+					} catch (MessagingException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				} else {
+
+					queue.wait();
+				}
+			}
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+
+		}
+	}
 }
