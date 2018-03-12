@@ -2,6 +2,10 @@ package practice.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -61,7 +65,7 @@ public class InputFormServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// doGet(request, response);
 				String userName = request.getParameter("ttbao");
-				String password = request.getParameter("sodienthoai");
+				String sodienthoai = request.getParameter("sodienthoai");
 
 				response.setContentType("text/html");
 				PrintWriter out = response.getWriter();
@@ -78,13 +82,63 @@ public class InputFormServlet extends HttpServlet {
 
 				// head section of document
 				out.println("<head>");
-				out.println("<title>Processing get requests with data</title>");
+				out.println("<title>Search Account</title>");
 				out.println("</head>");
 
 				// body section of document
 				out.println("<body>");
-				out.println("<h1>Hello " + userName + "- Password is " + password + ",<br />");
-				out.println("Welcome to Servlets!</h1>");
+				out.println("<h1>Ket qua tim kiem tai khoan theo yeu cau</h1>");
+				out.println("<table border=\"1\" cellpadding=\"1\" cellspacing=\"1\">");
+				out.println("<tr>");
+				out.println("<th>So thu tu</th>");
+				out.println("<th>Ten tai khoan</th>");
+				out.println("<th>So dien thoai</th>");
+				out.println("<th>Dia chi</th>");
+				out.println("</tr>");
+				//xu ly sql lay danh sach tai khoan
+				String query = "select * from nhanvien";
+				if(userName!=null && userName.length()!=0) {
+					query = query + " where HoTen like '" + userName +"%'";
+				}
+				Statement stmt = null;
+				ResultSet rs = null;
+				Connection con = null;
+				try {
+					String userNameDB = "sa";
+					String password = "th2151994";
+					String url = "jdbc:sqlserver://localhost:1433;databaseName=QUANLYGIAIBONGDA;";
+					Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+					con = DriverManager.getConnection(url,userNameDB,password);
+					System.out.println("Connect Successful");
+					stmt = con.createStatement();
+					rs = stmt.executeQuery(query);
+					if(rs!=null) {
+						for (int i = 1; rs.next();) {
+							out.println("<tr>");
+							out.println("<td>"+i+"</td>");
+							out.println("<td>" + rs.getString(2)+ "</td>");
+							out.println("<td>" + rs.getString(5)+ "</td>");
+							out.println("<td>" + rs.getString(7)+ "</td>");
+							out.println("</tr>");
+							
+						}
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}finally {
+					if(con !=null) {
+						try {
+							rs.close();
+							stmt.close();
+							con.close();
+							
+							System.out.println("Closed connection");
+						} catch (Exception e2) {
+							e2.printStackTrace();
+						}
+					}
+				}
+				out.println("</table>");
 				out.println("</body>");
 
 				// end XHTML document
