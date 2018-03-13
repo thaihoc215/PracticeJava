@@ -16,6 +16,7 @@ su dung 2 thanh phan import va request -->
 		<tr>
 			<td colspan="2"><jsp:include page="Banner.jsp"></jsp:include></td>
 		</tr>
+		<%! String tmp = ""; %>
 
 		<%
 			String username = request.getParameter("userName"); //servlet
@@ -30,7 +31,7 @@ su dung 2 thanh phan import va request -->
 							<td><h3>Today: <%=new Date() %></h3></td>
 						</tr>
 						<tr>
-							<td><h3>Welcome to: <%=username %></h3></td>
+							<td><h3>Welcome to: <%=username + tmp %></h3></td>
 						</tr>
 					</table>
 
