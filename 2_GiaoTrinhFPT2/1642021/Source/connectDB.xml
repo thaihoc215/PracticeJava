@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<dbconnect>
+	<connect id="1001">
+		<host>jdbc:sqlserver://localhost:1433;</host>
+		<dbname>QuanLyHocSinh</dbname>
+		<user>sa</user>
+		<pass>th2151994</pass>
+	</connect>
+</dbconnect>
