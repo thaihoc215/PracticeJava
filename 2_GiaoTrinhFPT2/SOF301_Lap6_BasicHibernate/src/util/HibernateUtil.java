@@ -1,5 +1,7 @@
 package util;
 
+import java.io.File;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
@@ -16,8 +18,11 @@ public class HibernateUtil {
 		if(sessionFactory==null)
 		{
 			try {
+				String dir = System.getProperty("user.dir").toString() + "/src/hibernate.cfg.xml";
+				System.out.println(dir);
+				File file = new File(dir);
 				// Create registry
-				registry = new StandardServiceRegistryBuilder().configure().build();
+				registry = new StandardServiceRegistryBuilder().configure(file).build();
 
 				// Create MetadataSources
 				MetadataSources sources = new MetadataSources(registry);

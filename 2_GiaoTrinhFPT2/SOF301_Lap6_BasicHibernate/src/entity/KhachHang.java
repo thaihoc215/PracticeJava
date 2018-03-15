@@ -2,6 +2,11 @@ package entity;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table (name = "khachhang")
 public class KhachHang implements Serializable {
 	/**
 	 * 
@@ -12,6 +17,16 @@ public class KhachHang implements Serializable {
 	private String hoVaTen;
 	private String email;
 	private String dienThoai;
+	public KhachHang() {
+		
+	}
+	public KhachHang(int i, String string, String string2, String string3, String string4) {
+		maKhachHang = i;
+		matKhau = string;
+		hoVaTen = string2;
+		email = string3;
+		dienThoai = string4;
+	}
 	/**
 	 * @return the maKhachHang
 	 */

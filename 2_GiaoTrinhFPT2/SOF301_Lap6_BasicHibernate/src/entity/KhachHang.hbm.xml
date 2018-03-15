@@ -4,7 +4,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
 
 <hibernate-mapping>
-   <class name = "entity.KhachHang" table = "khachhang" catalog = "quanlysach">
+   <class name = "entity.KhachHang" table = "khachhang">
 
       <id name = "maKhachHang" type = "int" column = "MaKhachHang">
          <generator class="assigned"/>
