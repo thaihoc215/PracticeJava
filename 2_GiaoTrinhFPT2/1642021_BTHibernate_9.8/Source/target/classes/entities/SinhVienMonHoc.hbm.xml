@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="entities.SinhVienMonHoc" table="sinhvienmonhoc" catalog="DiemDanhDB">
+		<composite-id name="maSinhVienMonHoc" class="entities.IDSinhVienMonHoc">
+			<key-property name="maMonHoc" column="MaMonHoc" type="int" />
+			<key-property name="maSinhVien" column="MaSinhVien" type="int"/>
+		</composite-id>
+		
+		<property name="week1" type="boolean">
+			<column name="Week1"/>
+		</property>
+		<property name="week2" type="boolean">
+			<column name="Week2"/>
+		</property>
+		<property name="week3" type="boolean">
+			<column name="Week3"/>
+		</property>
+		<property name="week4" type="boolean">
+			<column name="Week4"/>
+		</property>
+		<property name="week5" type="boolean">
+			<column name="Week5"/>
+		</property>
+		<property name="week6" type="boolean">
+			<column name="Week6"/>
+		</property>
+		<property name="week7" type="boolean">
+			<column name="Week7"/>
+		</property>
+		<property name="week8" type="boolean">
+			<column name="Week8"/>
+		</property>
+		<property name="week9" type="boolean">
+			<column name="Week9"/>
+		</property>
+		<property name="week10" type="boolean">
+			<column name="Week10"/>
+		</property>
+		<property name="week11" type="boolean">
+			<column name="Week11"/>
+		</property>
+		<property name="week12" type="boolean">
+			<column name="Week12"/>
+		</property>
+		<property name="week13" type="boolean">
+			<column name="Week13"/>
+		</property>
+		<property name="week14" type="boolean">
+			<column name="Week14"/>
+		</property>
+		<property name="week15" type="boolean">
+			<column name="Week15"/>
+		</property>
+		
+	</class>
+</hibernate-mapping>

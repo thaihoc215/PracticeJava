@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="entities.MonHoc" table="monhoc" catalog="DiemDanhDB">
+		<id name="maMonHoc" type="int">
+			<column name="MaMonHoc"/>
+			<generator class="assigned" />
+		</id>
+		<property name="tenMonHoc" type="string">
+			<column name="TenMonHoc" length="50" />
+		</property>
+		<property name="ngayBatDau" type="date">
+			<column name="NgayBatDau" />
+		</property>
+		<property name="ngayKetThuc" type="date">
+			<column name="NgayKetThuc" />
+		</property>
+		<property name="thuTrongTuan" type="int">
+			<column name="ThuTrongTuan" />
+		</property>
+		<property name="gioBatDau" type="string">
+			<column name="GioBatDau" length="50" />
+		</property>
+		<property name="gioKetThuc" type="string">
+			<column name="GioKetThuc" length="50" />
+		</property>
+		<property name="tenPhongHoc" type="string">
+			<column name="TenPhong" length="50" />
+		</property>
+		<set name="dsSinhVien" table="sinhvienmonhoc" lazy="false" fetch="join"
+			cascade="save-update,delete">
+			<key column="MaMonHoc" />
+			<many-to-many column="MaSinhVien" class="entities.NguoiDung"></many-to-many>
+		</set>
+	</class>
+</hibernate-mapping>

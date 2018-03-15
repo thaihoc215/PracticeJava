@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- START - SQL Server Connection Properties -->
+		<!-- SQL Server - Database Specific Property Details - Need to Change according 
+			to Database Vendor -->
+		<property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
+		<property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+		<property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;databaseName=HibernateDemo</property>
+
+		<!-- SQL Server - Database UserName & Password -->
+		<property name="hibernate.connection.username">sa</property>
+		<property name="hibernate.connection.password">th2151994</property>
+		<!-- END - SQL Server Connection Properties -->
+		
+		<!-- Tu dong close sau khi getCurrent session -->
+		<property name="hibernate.current_session_context_class">thread</property>
+		<mapping resource="entity/Khachhang.hbm.xml" />
+		
+		
+
+		<!-- <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property> 
+			<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/Book</property> 
+			<property name="hibernate.connection.pool_size">1</property> <property name="hibernate.current_session_context_class">thread</property> 
+			<property name="hibernate.show_sql">true</property> -->
+		
+	</session-factory>
+</hibernate-configuration>
