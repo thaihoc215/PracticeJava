@@ -1,36 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE hibernate-configuration PUBLIC
-        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-        "http://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+                                         "http://hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-	<session-factory>
-		<!-- START - SQL Server Connection Properties -->
-		<!-- SQL Server - Database Specific Property Details - Need to Change according 
+ <session-factory>
+  <!-- START - SQL Server Connection Properties 
+ SQL Server - Database Specific Property Details - Need to Change according 
 			to Database Vendor -->
-		<property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
-		<property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
-		<property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;databaseName=HibernateDemo;useUnicode=true;characterEncoding=UTF-8;</property>
-		<!--
+  <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
+  <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+  <property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;databaseName=HibernateDemo;useUnicode=true;characterEncoding=UTF-8;</property>
+  <!--
 		<property name="hibernate.connection.useUnicode">true</property>
 		<property name="hibernate.connection.charSet">UTF8</property>
-		-->
-		<!-- SQL Server - Database UserName & Password -->
-		<property name="hibernate.connection.username">sa</property>
-		<property name="hibernate.connection.password">th2151994</property>
-		<!-- END - SQL Server Connection Properties -->
-
-		<!-- Tu dong close sau khi getCurrent session -->
-		<property name="hibernate.current_session_context_class">thread</property>
-		<property name="hibernate.transaction.flush_before_completion">True</property>
-		<property name="hibernate.transaction.auto_close_session">True</property>
-		<property name="hibernate.connection.pool_size">1</property>
-		<property name="hibernate.show_sql">true</property>
-		<mapping resource="entity/KhachHang.hbm.xml" />
-
-
-
-		<!-- <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property> 
+		
+ SQL Server - Database UserName & Password -->
+  <property name="hibernate.connection.username">sa</property>
+  <property name="hibernate.connection.password">th2151994</property>
+  <!-- END - SQL Server Connection Properties 
+ Tu dong close sau khi getCurrent session -->
+  <property name="hibernate.current_session_context_class">thread</property>
+  <property name="hibernate.transaction.flush_before_completion">true</property>
+  <property name="hibernate.transaction.auto_close_session">true</property>
+  <property name="hibernate.connection.pool_size">1</property>
+  <property name="hibernate.show_sql">true</property>
+  <property name="hibernate.format_sql">true</property>
+  <mapping resource="entity/KhachHang.hbm.xml"/>
+  <!-- <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property> 
 			<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/Book</property> -->
-
-	</session-factory>
+ </session-factory>
 </hibernate-configuration>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name = "etities.Bophan" table = "bophan">
+
+      <id name = "maBoPhan" type = "integer" column = "MaBoPhan">
+         <generator class="assigned"/>
+      </id>
+      
+      <property name = "tenBoPhan" column = "MatKhau" type = "string"/>
+      
+   </class>
+</hibernate-mapping>

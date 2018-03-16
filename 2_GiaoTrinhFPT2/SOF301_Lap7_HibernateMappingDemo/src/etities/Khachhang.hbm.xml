@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="etities.Khachhang" table="khachhang">
+
+		<id name="maKhachHang" type="integer" column="MaKhachHang">
+			<generator class="assigned" />
+		</id>
+
+		<property name="matKhau" column="MatKhau" type="string" />
+		<property name="hoVaTen" column="HoVaTen" type="string" />
+		<property name="email" column="Email" type="string" />
+		<property name="dienThoai" column="DienThoai" type="string" />
+		<many-to-one name="bophan" class="entities.Bophan" lazy="false" fetch="join">
+			<column name="MaBoPhan" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

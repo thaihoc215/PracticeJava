@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+        <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+        <property name="hibernate.connection.password">th2151994</property>
+        <property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;databaseName=HibernateDemo</property>
+        <property name="hibernate.connection.username">sa</property>
+        <property name="hibernate.current_session_context_class">thread</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</property>
+        <property name="hibernate.format_sql">true</property>
+        <property name="hibernate.search.autoregister_listeners">true</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.transaction.auto_close_session">true</property>
+        <property name="hibernate.transaction.flush_before_completion">true</property>
+        <property name="hibernate.validator.apply_to_ddl">false</property>
+        <mapping class="etities.Khachhang"/>
+        <mapping class="etities.Bophan"/>
+    </session-factory>
+</hibernate-configuration>
