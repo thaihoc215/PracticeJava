@@ -10,6 +10,10 @@ import entity.KhachHang;
 import util.HibernateUtil;
 
 public class KhachHangDAO {
+	/**
+	 * Hibernate list
+	 * @return a list from document <List>
+	 */
 	public static List<KhachHang> layDanhSachKhachHang() {
 		List<KhachHang> dsKhachHang = null;
 		try {
@@ -25,6 +29,11 @@ public class KhachHangDAO {
 		return dsKhachHang;
 	}
 
+	/**
+	 * Get one record Hibernate
+	 * @param maKhachHang
+	 * @return
+	 */
 	public static KhachHang layThongTinKhachHang(int maKhachHang) {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		session.beginTransaction();
@@ -34,6 +43,11 @@ public class KhachHangDAO {
 		return kh;
 	}
 
+	/**
+	 * Insert record hibernate
+	 * @param kh
+	 * @return
+	 */
 	public static boolean themKhachHang(KhachHang kh) {
 		if (layThongTinKhachHang(kh.getMaKhachHang()) != null)
 			return false;
@@ -52,6 +66,11 @@ public class KhachHangDAO {
 		}
 	}
 	
+	/**
+	 * update record hibernate
+	 * @param kh
+	 * @return
+	 */
 	public static boolean capnhatKhachHang(KhachHang kh) {
 		if (layThongTinKhachHang(kh.getMaKhachHang()) == null)
 			return false;
@@ -70,6 +89,11 @@ public class KhachHangDAO {
 		}
 	}
 	
+	/**
+	 * Remove record hibernate
+	 * @param makh
+	 * @return
+	 */
 	public static boolean xoaKhachHang(int makh) {
 		KhachHang kh = layThongTinKhachHang(makh);
 		if (kh == null)

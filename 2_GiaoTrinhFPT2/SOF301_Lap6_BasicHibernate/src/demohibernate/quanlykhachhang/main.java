@@ -8,15 +8,15 @@ import entity.KhachHang;
 public class main {
 
 	public static void main(String[] args) {
-		// List<KhachHang> dsKhachHangs = KhachHangDAO.layDanhSachKhachHang();
-		// if (dsKhachHangs == null)
-		// System.out.println("danh sach rong");
-		// else
-		// for (KhachHang khachHang : dsKhachHangs) {
-		// System.out.println("Họ tên: " + khachHang.getHoVaTen() +
-		// " - Email: " + khachHang.getEmail() + " - SDT: " + khachHang.getDienThoai());
-		// }
-		//
+		 List<KhachHang> dsKhachHangs = KhachHangDAO.layDanhSachKhachHang();
+		 if (dsKhachHangs == null)
+		 System.out.println("danh sach rong");
+		 else
+		 for (KhachHang khachHang : dsKhachHangs) {
+		 System.out.println("Họ tên: " + khachHang.getHoVaTen() +
+		 " - Email: " + khachHang.getEmail() + " - SDT: " + khachHang.getDienThoai());
+		 }
+		
 		// KhachHang kh = KhachHangDAO.layThongTinKhachHang(1);
 		// System.out.println("Lấy thông tin 1 khách hàng");
 		// System.out.println("Họ tên: " + kh.getHoVaTen() +
@@ -37,11 +37,11 @@ public class main {
 		// System.out.println("Cập nhật thất bại!");
 		// }
 
-		if (KhachHangDAO.xoaKhachHang(5) == true) {
-			System.out.println("Xóa thành công!");
-		} else {
-			System.out.println("Xóa thất bại!");
-		}
+		// if (KhachHangDAO.xoaKhachHang(5) == true) {
+		// System.out.println("Xóa thành công!");
+		// } else {
+		// System.out.println("Xóa thất bại!");
+		// }
 
 	}
 
