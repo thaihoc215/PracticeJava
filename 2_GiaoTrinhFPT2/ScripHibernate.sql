@@ -15,7 +15,8 @@ Create Table bophan(
 	TenBoPhan nvarchar(255)
 );
 
-alter table khachhang add constraint fk_kh_bp foreign key (BoPhan) references bophan(MaBoPhan);
+Create Table chitietlophoc()
+alter table khachhang add constraint fk_kh_bp foreign key (BoPhan) references bophan(MaBoPhan) ON UPDATE CASCADE;
 
 Insert into bophan values(1,'binh thuong');
 Insert into bophan values(2,'tiem nang');
