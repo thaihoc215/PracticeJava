@@ -31,7 +31,7 @@ public class Employee implements java.io.Serializable {
 	private long empId;
 	private Department department;
 	private Employee employeeByMngId;
-	private Employee employeeByEmpId;
+//	private Employee employeeByEmpId;
 	private String empName;
 	private String empNo;
 	private Date hireDate;
@@ -58,7 +58,7 @@ public class Employee implements java.io.Serializable {
 
 	public Employee(Department department, Employee employeeByMngId, Employee employeeByEmpId, String empName,
 			String empNo, Date hireDate, byte[] image, String job, double salary, Set<Employee> employeesForMngId,
-			Employee employeeByEmpId, Set<Timekeeper> timekeepers) {
+			Set<Timekeeper> timekeepers) {
 		this.department = department;
 		this.employeeByMngId = employeeByMngId;
 		this.employeeByEmpId = employeeByEmpId;
@@ -69,7 +69,7 @@ public class Employee implements java.io.Serializable {
 		this.job = job;
 		this.salary = salary;
 		this.employeesForMngId = employeesForMngId;
-		this.employeeByEmpId = employeeByEmpId;
+//		this.employeeByEmpId = employeeByEmpId;
 		this.timekeepers = timekeepers;
 	}
 
@@ -180,14 +180,14 @@ public class Employee implements java.io.Serializable {
 		this.employeesForMngId = employeesForMngId;
 	}
 
-	@OneToOne(fetch = FetchType.LAZY, mappedBy = "employeeByEmpId")
-	public Employee getEmployeeByEmpId() {
-		return this.employeeByEmpId;
-	}
-
-	public void setEmployeeByEmpId(Employee employeeByEmpId) {
-		this.employeeByEmpId = employeeByEmpId;
-	}
+//	@OneToOne(fetch = FetchType.LAZY, mappedBy = "employeeByEmpId")
+//	public Employee getEmployeeByEmpId() {
+//		return this.employeeByEmpId;
+//	}
+//
+//	public void setEmployeeByEmpId(Employee employeeByEmpId) {
+//		this.employeeByEmpId = employeeByEmpId;
+//	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "employee")
 	public Set<Timekeeper> getTimekeepers() {

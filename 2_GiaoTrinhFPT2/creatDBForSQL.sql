@@ -9,7 +9,11 @@ create table DEPARTMENT (
    primary key (DEPT_ID),
    unique (DEPT_NO)
 );
- 
+   <type-mapping>
+  	<sql-type jdbc-type="NVARCHAR" hibernate-type="string"/>
+  	<sql-type jdbc-type="VARCHAR" hibernate-type="string"/>
+  </type-mapping>
+  <table-filter match-catalog="HibernateDemo" match-schema="dbo" match-name=".*"/>
 create table EMPLOYEE (
    EMP_ID bigint not null,
    EMP_NAME varchar(50) not null,

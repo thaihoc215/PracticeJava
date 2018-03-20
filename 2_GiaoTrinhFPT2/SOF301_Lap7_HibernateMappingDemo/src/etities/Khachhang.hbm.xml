@@ -14,7 +14,7 @@
 		<property name="hoVaTen" column="HoVaTen" type="string" />
 		<property name="email" column="Email" type="string" />
 		<property name="dienThoai" column="DienThoai" type="string" />
-		<many-to-one name="bophan" class="entities.Bophan" lazy="false" fetch="join">
+		<many-to-one name="bophan" class="entities.Bophan" lazy="false" fetch="join" cascade="save-update">
 			<column name="MaBoPhan" />
 		</many-to-one>
 	</class>

@@ -15,6 +15,7 @@
         <property name="hibernate.transaction.auto_close_session">true</property>
         <property name="hibernate.transaction.flush_before_completion">true</property>
         <property name="hibernate.validator.apply_to_ddl">false</property>
+        
         <mapping class="etities.Khachhang"/>
         <mapping class="etities.Bophan"/>
     </session-factory>
