@@ -1,5 +1,6 @@
 package org.hochnt.tutorial.hibernate.main;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -7,6 +8,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.hochnt.tutorial.hibernate.beans.ShortEmpInfo;
+import org.hochnt.tutorial.hibernate.dao.DepartmentDAO;
+import org.hochnt.tutorial.hibernate.dao.EmployeeDAO;
 import org.hochnt.tutorial.hibernate.entities.Department;
 import org.hochnt.tutorial.hibernate.entities.Employee;
 import org.hochnt.tutorial.hibernate.utils.HibernateUtils;
@@ -14,12 +17,63 @@ import org.hochnt.tutorial.hibernate.utils.HibernateUtils;
 public class main {
 
 	public static void main(String[] args) {
-//		query1();
-//		query2();
+		// query1();
+		// query2();
+
+		// querySomeColumns();
+		// ShortEmpInfoQueryDemo();
+		// UniqueResultDemo();
 		
-//		querySomeColumns();
-//		ShortEmpInfoQueryDemo();
-		UniqueResultDemo();
+		Session session = HibernateUtils.getSessionFactory().getCurrentSession();
+		Department department = null;
+		Employee emp = null;
+		try {
+			session.getTransaction().begin();
+
+			Long maxEmpId = EmployeeDAO.getMaxEmpId(session);
+			Long empId = maxEmpId + 1;
+
+			// Phòng ban với mã số D10.
+			// Nó là đối tượng chịu sự quản lý của session
+			// Và được gọi là đối tượng persistent.
+
+			department = DepartmentDAO.findDepartment(session, "D10");
+
+			// Tạo mới đối tượng Employee
+			// Đối tượng này chưa chịu sự quản lý của session.
+			// Nó được coi là đối tượng Transient.
+
+			emp = new Employee();
+			emp.setEmpId(empId);
+			emp.setEmpNo("E" + empId);
+			emp.setEmpName("Name " + empId);
+			emp.setJob("Coder");
+			emp.setSalary(1000f);
+			emp.setManager(null);
+			emp.setHideDate(new Date());
+			emp.setDepartment(department);
+
+			// Sử dụng persist(..)
+			// Lúc này 'emp' đã chịu sự quản lý của session.
+			// nó có trạng thái persistent.
+			// Chưa có hành động gì với DB tại đây.
+
+			session.persist(emp);
+
+			// Tại bước này dữ liệu mới được đẩy xuống DB.
+			// Câu lệnh Insert được tạo ra.
+
+			session.getTransaction().commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			session.getTransaction().rollback();
+		}
+
+		// Sau khi session bị đóng lại (commit, rollback, close)
+		// Đối tượng 'emp', 'dept' trở thành đối tượng Detached.
+		// Nó không còn trong sự quản lý của session nữa.
+
+		System.out.println("Emp No: " + emp.getEmpNo());
 	}
 
 	/**

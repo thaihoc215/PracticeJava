@@ -17,6 +17,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
 
+import org.hibernate.annotations.Type;
+
 @Entity
 @Table(name = "EMPLOYEE", uniqueConstraints = { @UniqueConstraint(columnNames = { "EMP_NO" }) })
 public class Employee {
@@ -115,7 +117,7 @@ public class Employee {
 	}
 
 	@Column(name = "IMAGE", length = 1111111, nullable = true)
-	@Lob
+	@Type(type="org.hibernate.type.BinaryType")
 	public byte[] getImage() {
 		return image;
 	}
