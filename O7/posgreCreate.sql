@@ -1,3 +1,5 @@
+-- create DATABASE simplehr;
+
 create table DEPARTMENT (
     DEPT_ID bigint not null,
     DEPT_NAME varchar(255) not null,
