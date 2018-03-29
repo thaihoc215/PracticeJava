@@ -19,7 +19,7 @@ import org.springframework.context.annotation.Configuration;
  * */
 public class AppConfiguration {
  
-    @Bean(name ="language")
+    @Bean(name ="language1")
     public Language getLanguage() {
  
         return new Vietnamese();

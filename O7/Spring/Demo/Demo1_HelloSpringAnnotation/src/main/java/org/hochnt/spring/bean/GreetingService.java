@@ -15,7 +15,7 @@ public class GreetingService {
 	 * giá trị cho trường đó.
 	 */
 	@Autowired
-	private Language language;
+	private Language language2;
 
 	public GreetingService() {
 
@@ -23,7 +23,7 @@ public class GreetingService {
 
 	public void sayGreeting() {
 
-		String greeting = language.getGreeting();
+		String greeting = language2.getGreeting();
 
 		System.out.println("Greeting: " + greeting);
 	}

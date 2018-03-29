@@ -15,7 +15,7 @@ public class MainProgram {
 		ApplicationContext context = new AnnotationConfigApplicationContext(AppConfiguration.class);
 
 		System.out.println("----------");
-		Language language = (Language) context.getBean("language");
+		Language language = (Language) context.getBean("language1");
 
 		System.out.println("Bean Language: " + language);
 		System.out.println("Call language.sayBye(): " + language.getBye());
