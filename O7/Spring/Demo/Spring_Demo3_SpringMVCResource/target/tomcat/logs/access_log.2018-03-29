@@ -24,3 +24,7 @@
 0:0:0:0:0:0:0:1 - - [29/Mar/2018:23:55:42 +0700] "GET /Spring_Demo3_SpringMVCResource/ HTTP/1.1" 200 87 http-bio-8080-exec-4 517
 0:0:0:0:0:0:0:1 - - [29/Mar/2018:23:55:44 +0700] "GET /Spring_Demo3_SpringMVCResource/staticResourceTest HTTP/1.1" 200 1011 http-bio-8080-exec-5 67
 0:0:0:0:0:0:0:1 - - [29/Mar/2018:23:55:44 +0700] "GET /Spring_Demo3_SpringMVCResource/scripts/common.js HTTP/1.1" 404 1047 http-bio-8080-exec-6 8
+0:0:0:0:0:0:0:1 - - [29/Mar/2018:23:57:12 +0700] "GET /Spring_Demo3_SpringMVCResource/staticResourceTest HTTP/1.1" 200 1011 http-bio-8080-exec-1 205
+0:0:0:0:0:0:0:1 - - [29/Mar/2018:23:57:12 +0700] "GET /Spring_Demo3_SpringMVCResource/scripts/common.js HTTP/1.1" 200 64 http-bio-8080-exec-2 26
+0:0:0:0:0:0:0:1 - - [29/Mar/2018:23:57:12 +0700] "GET /Spring_Demo3_SpringMVCResource/styles/common.css HTTP/1.1" 200 157 http-bio-8080-exec-3 20
+0:0:0:0:0:0:0:1 - - [29/Mar/2018:23:57:12 +0700] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8080-exec-5 0
