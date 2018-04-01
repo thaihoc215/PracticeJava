@@ -1,5 +1,6 @@
 <html>
 <body>
-<h2>Hello World!</h2>
+<a href="login1">i18n</a>
+<a href="${pageContext.request.contextPath}/vi/login2">i18n</a>
 </body>
 </html>
