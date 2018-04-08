@@ -13,7 +13,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.core.env.Environment;
-import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
@@ -21,7 +20,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
-@ComponentScan("org.hochnt.springmvcweblogin.*")
+@ComponentScan("org.hochnt.springmvcsecurity.*")
 @EnableTransactionManagement
 // Load to Environment.
 @PropertySource("classpath:datasource-cfg.properties")
@@ -67,15 +66,6 @@ public class ApplicationContextConfig {
        return dataSource;
    }
  
-   // Transaction Manager
-   @Autowired
-   @Bean(name = "transactionManager")
-   public DataSourceTransactionManager getTransactionManager(DataSource dataSource) {
-       DataSourceTransactionManager transactionManager = new DataSourceTransactionManager(dataSource);
- 
-       return transactionManager;
-   }
-   
    @Autowired
    @Bean(name = "sessionFactory")
    public SessionFactory getSessionFactory(DataSource dataSource) throws Exception {
@@ -92,7 +82,7 @@ public class ApplicationContextConfig {
  
            // Package contain entity classes
            // Package chứa các entity class.
-           factoryBean.setPackagesToScan(new String[] { "org.o7planning.springmvcsecurity.entity" });
+           factoryBean.setPackagesToScan(new String[] { "org.hochnt.springmvcsecurity.entity" });
            factoryBean.setDataSource(dataSource);
            factoryBean.setHibernateProperties(properties);
            factoryBean.afterPropertiesSet();
