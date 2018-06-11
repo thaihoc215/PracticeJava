@@ -70,5 +70,7 @@ public class ApplicationContextConfig {
  
        return transactionManager;
    }
+   
+   //tạo các bean cho DAO
 
 }
