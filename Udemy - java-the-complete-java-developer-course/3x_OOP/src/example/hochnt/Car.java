@@ -7,6 +7,10 @@ public class Car {
     private String engine;
     private String colour;
 
+    public Car() {
+
+    }
+
     public int getDoors() {
         return doors;
     }
@@ -28,7 +32,11 @@ public class Car {
     }
 
     public void setModel(String model) {
-        this.model = model;
+        String validModel = model.toLowerCase();
+        if (validModel.equals("porche") || validModel.equals("hold"))
+            this.model = model;
+        else
+            this.model = "Uknow";
     }
 
     public String getEngine() {
