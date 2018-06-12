@@ -11,27 +11,38 @@ public class PC {
         this.motherBoard = motherBoard;
     }
 
-    public Case getTheCase() {
-        return theCase;
+    public void powerUp(){
+        theCase.pressPowerButton();
+        drawLogo();
+        motherBoard.loadProgram("Composistion loading");
     }
 
-    public void setTheCase(Case theCase) {
-        this.theCase = theCase;
+    private void drawLogo(){
+        //Fancy graphics
+        monitor.drawPixelAt(1200,50,"yellow");
     }
 
-    public Monitor getMonitor() {
-        return monitor;
-    }
-
-    public void setMonitor(Monitor monitor) {
-        this.monitor = monitor;
-    }
-
-    public MotherBoard getMotherBoard() {
-        return motherBoard;
-    }
-
-    public void setMotherBoard(MotherBoard motherBoard) {
-        this.motherBoard = motherBoard;
-    }
+//    private Case getTheCase() {
+//        return theCase;
+//    }
+//
+//    public void setTheCase(Case theCase) {
+//        this.theCase = theCase;
+//    }
+//
+//    private Monitor getMonitor() {
+//        return monitor;
+//    }
+//
+//    public void setMonitor(Monitor monitor) {
+//        this.monitor = monitor;
+//    }
+//
+//    private MotherBoard getMotherBoard() {
+//        return motherBoard;
+//    }
+//
+//    public void setMotherBoard(MotherBoard motherBoard) {
+//        this.motherBoard = motherBoard;
+//    }
 }

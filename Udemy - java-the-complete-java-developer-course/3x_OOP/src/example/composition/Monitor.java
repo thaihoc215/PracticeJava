@@ -17,35 +17,35 @@ public class Monitor {
         System.out.println("Drawing pixel at " + x + "," + y + " in color " + color);
     }
 
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public String getManufacturer() {
-        return manufacturer;
-    }
-
-    public void setManufacturer(String manufacturer) {
-        this.manufacturer = manufacturer;
-    }
-
-    public int getSize() {
-        return size;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
-    }
-
-    public Resolution getNativeRevolution() {
-        return nativeRevolution;
-    }
-
-    public void setNativeRevolution(Resolution nativeRevolution) {
-        this.nativeRevolution = nativeRevolution;
-    }
+//    public String getModel() {
+//        return model;
+//    }
+//
+//    public void setModel(String model) {
+//        this.model = model;
+//    }
+//
+//    public String getManufacturer() {
+//        return manufacturer;
+//    }
+//
+//    public void setManufacturer(String manufacturer) {
+//        this.manufacturer = manufacturer;
+//    }
+//
+//    public int getSize() {
+//        return size;
+//    }
+//
+//    public void setSize(int size) {
+//        this.size = size;
+//    }
+//
+//    public Resolution getNativeRevolution() {
+//        return nativeRevolution;
+//    }
+//
+//    public void setNativeRevolution(Resolution nativeRevolution) {
+//        this.nativeRevolution = nativeRevolution;
+//    }
 }
