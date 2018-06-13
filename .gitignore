@@ -1,0 +1,5 @@
+node_modules
+.DS_Store
+*.log
+.vscode
+Udemy - java-the-complete-java-developer-course/.idea/
