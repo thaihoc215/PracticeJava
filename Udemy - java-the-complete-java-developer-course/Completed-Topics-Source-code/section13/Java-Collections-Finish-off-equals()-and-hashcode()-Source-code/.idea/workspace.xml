@@ -24,8 +24,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/timbuchalka/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="98" column="17" lean-forward="true" selection-start-line="98" selection-start-column="17" selection-end-line="98" selection-end-column="17" />
+            <state relative-caret-position="391">
+              <caret line="26" column="31" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -33,8 +33,8 @@
       <file leaf-file-name="HeavenlyBody.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/timbuchalka/HeavenlyBody.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="681">
-              <caret line="54" column="44" selection-start-line="54" selection-start-column="44" selection-end-line="54" selection-end-column="44" />
+            <state relative-caret-position="620">
+              <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
               <folding>
                 <element signature="e#727#728#0" expanded="true" />
                 <element signature="e#780#781#0" expanded="true" />
@@ -77,8 +77,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="515" />
-    <option name="width" value="1412" />
+    <option name="x" value="260" />
+    <option name="width" value="1667" />
     <option name="height" value="1057" />
   </component>
   <component name="ProjectView">
@@ -86,18 +86,40 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Java-Collections-Finish-off-equals()-and-hashcode()-Source-code" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Java-Collections-Finish-off-equals()-and-hashcode()-Source-code" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Java-Collections-Finish-off-equals()-and-hashcode()-Source-code" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Java-Collections-Finish-off-equals()-and-hashcode()-Source-code" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Java-Collections-Finish-off-equals()-and-hashcode()-Source-code" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Java-Collections-Finish-off-equals()-and-hashcode()-Source-code" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="timbuchalka" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope" />
-      <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Java-Collections-Potential-issue-with-equals()-and-sub-classing-Source-code" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Java-Collections-Sets-Symmetric-&amp;-Asymmetric-Source-code" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -596,11 +618,12 @@
       <workItem from="1452648619399" duration="1481000" />
       <workItem from="1452734308319" duration="998000" />
       <workItem from="1529516527663" duration="1689000" />
+      <workItem from="1529595466129" duration="2737000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5770000" />
+    <option name="totallyTimeSpent" value="8507000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -612,23 +635,21 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="515" y="0" width="1412" height="1057" extended-state="0" />
+    <frame x="260" y="0" width="1667" height="1057" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="bottom" id="TODO" order="5" weight="0.3292683" />
-      <window_info anchor="bottom" id="Messages" order="9" />
       <window_info id="Palette&#9;" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="6" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
       <window_info anchor="right" id="Run" order="7" weight="0.36094674" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="6" weight="0.3292683" />
       <window_info anchor="right" id="Designer" order="3" />
-      <window_info content_ui="combo" x="568" y="60" width="319" height="624" id="Project" order="0" visible="true" weight="0.13757396" />
+      <window_info active="true" content_ui="combo" x="568" y="60" width="319" height="624" id="Project" order="0" visible="true" weight="0.117610455" />
       <window_info anchor="right" id="Database" order="5" />
-      <window_info anchor="bottom" id="Find" order="1" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
@@ -640,6 +661,8 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Messages" order="9" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -665,6 +688,24 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/com/timbuchalka/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1615">
+          <caret line="98" column="17" lean-forward="true" selection-start-line="98" selection-start-column="17" selection-end-line="98" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/timbuchalka/HeavenlyBody.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="54" column="44" selection-start-line="54" selection-start-column="44" selection-end-line="54" selection-end-column="44" />
+          <folding>
+            <element signature="e#727#728#0" expanded="true" />
+            <element signature="e#780#781#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/timbuchalka/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1462">
@@ -730,15 +771,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/timbuchalka/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="98" column="17" lean-forward="true" selection-start-line="98" selection-start-column="17" selection-end-line="98" selection-end-column="17" />
+        <state relative-caret-position="391">
+          <caret line="26" column="31" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/timbuchalka/HeavenlyBody.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="681">
-          <caret line="54" column="44" selection-start-line="54" selection-start-column="44" selection-end-line="54" selection-end-column="44" />
+        <state relative-caret-position="620">
+          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
           <folding>
             <element signature="e#727#728#0" expanded="true" />
             <element signature="e#780#781#0" expanded="true" />
